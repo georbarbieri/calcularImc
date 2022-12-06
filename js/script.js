@@ -1,26 +1,26 @@
 //Solicitar al usuario que ingrese a su usuario para luego ingresar su edad, peso y altura para calcular su IMC
 
 
-    //Solicitar al usuario que entre a su cuenta
-for ( let i=1;i<=3;i++) {
-        let usuario =prompt("Ingresa tu nombre de usuario");
-        let password=prompt("Ingresa tu contraseña");
-            if((usuario=="User")&&(password=="1234")) {
-                alert("Bienvenido "+ usuario);
-                break;
-        }else{ 
-            alert("Usuario y/o contraseña erroneo");
-        }
+//Solicitar al usuario que entre a su cuenta
+for (let i = 1; i <= 3; i++) {
+    let usuario = prompt("Ingresa tu nombre de usuario");
+    let password = prompt("Ingresa tu contraseña");
+    if ((usuario == "User") && (password == "1234")) {
+        alert("Bienvenido " + usuario);
+        break;
+    } else {
+        alert("Usuario y/o contraseña erroneo");
+    }
 }
 
 //Solicitar su edad al usuario
 
 
 let ingresarEdad = parseInt(prompt("Ingrese su edad"));
-if (ingresarEdad>=18) {
+if (ingresarEdad >= 18) {
     alert("Eres mayor de edad por lo cual puedes acceder al contenido ")
     console.log("Eres mayor de edad estás apto para ver sin supervision adulta")
-}else{ 
+} else {
     alert("No eres mayor de edad");
     let ingresarEdad = parseInt(prompt("Ingrese su edad"));
 }
@@ -37,11 +37,9 @@ console.log("Usted pesa " + ingresarPeso)
 let calcularAltura = (ingresarAltura * ingresarAltura);
 
 //Resultado
-function calcularResultado(){
     let resultado = (ingresarPeso / calcularAltura);
-console.log("Tu IMC es de " + resultado);
-alert("Tu IMC es de " + resultado);
-}
+    console.log("Tu IMC es de " + resultado);
+    alert("Tu IMC es de " + resultado);
 
 
 if (resultado <= 0.00185) {
@@ -63,4 +61,3 @@ if (resultado <= 0.00185) {
     alert("En este caso estas en un rango de Obesidad 3 o tambien llamado Obesidad Morbida, te recomendamos que visites a un especialista")
     console.log("En este caso estas en un rango de Obesidad 3 o tambien llamado Obesidad Morbida")
 }
-

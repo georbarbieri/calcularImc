@@ -8,6 +8,7 @@ for (let i = 1; i <= 3; i++) {
     let password = prompt("Ingresa tu contraseña");
     if ((usuario == "User") && (password == "1234")) {
         alert("Bienvenido " + usuario);
+        break;
     } else {
         alert("Usuario y/o contraseña erroneo");
     }
@@ -38,60 +39,46 @@ console.log("Usted pesa " + ingresarPeso)
 
 //Resultado
 
-function calcularResultado ( ) {
-    let resultado = (ingresarPeso / calcularAltura);}
-    /*console.log("Tu IMC es de " + resultado);
-    alert("Tu IMC es de " + resultado);
-    
-}*/
-function calcularResultado (resultado) {
-        while(resultado != "ESC"){
-            switch(resultado){
-                case "<= 0.00185":
-                    alert("En este caso estas por debajo de tu peso ideal, te recomendamos que visites a un especialista");
-                    console.log("Estas en el rango de bajopeso");
-                    break;
-                case ">= 0.00185 && <= 0.00249":
-                    alert("En este caso estas en tu peso ideal");
-                    console.log("Estas en tu peso ideal");
-                    break;
-                case ">= 0.0025 && <= 0.00349":
-                    alert("En este caso estás en un rango de sobrepeso, te recomendamos que visites a un especialista");
-                    console.log("En este caso estás en un rango de sobre peso");
-                    break;
-                case ">= 0.0030 && <= 0.00349":
-                    alert("En este caso estas en un rango de Obesidad 1, te recomendamos que visites a un especialista");
-                    console.log("En este caso estas en un rango de Obesidad 1");
-                    break;
-                case ">= 0.0035 && >= 0.0040 ":
-                    alert("En este caso estas en un rango de Obesidad 2, te recomendamos que visites a un especialista");
-                    console.log("En este caso estas en un rango de Obesidad 2");
-                    break;
-                default:
-                    alert("En este caso estas en un rango de Obesidad 3 o tambien llamado Obesidad Morbida, te recomendamos que visites a un especialista")
-                    resultado=prompt("En este caso estas en un rango de Obesidad 3 o tambien llamado Obesidad Morbida")
-                    break;
-            }
-        }
-    }
+let resultado = (ingresarPeso / calcularAltura);
+console.log("Tu IMC es de " + resultado);
+alert("Tu IMC es de " + resultado);
 
-
-/*if (resultado <= 0.00185) {
+if (resultado <= 0.00185) {
     alert("En este caso estas por debajo de tu peso ideal, te recomendamos que visites a un especialista");
-    console.log("Estas en el rango de bajopeso")
+    console.log("Estas en el rango de bajopeso");
+    abrirFormulario();
 } else if ((resultado >= 0.00185) && (resultado <= 0.00249)) {
     alert("En este caso estas en tu peso ideal");
     console.log("Estas en tu peso ideal");
 } else if ((resultado >= 0.0025) && (resultado <= 0.00299)) {
     alert("En este caso estás en un rango de sobrepeso, te recomendamos que visites a un especialista");
     console.log("En este caso estás en un rango de sobre peso");
+    abrirFormulario();
 } else if ((resultado >= 0.0030) && (resultado <= 0.00349)) {
     alert("En este caso estas en un rango de Obesidad 1, te recomendamos que visites a un especialista");
     console.log("En este caso estas en un rango de Obesidad 1");
-} else if ((resultado >= 0.0035) && (resultado >= 0.0040)) {
+    abrirFormulario();
+} else if ((resultado >= 0.0035) && (resultado <= 0.00399)) {
     alert("En este caso estas en un rango de Obesidad 2, te recomendamos que visites a un especialista");
     console.log("En este caso estas en un rango de Obesidad 2");
+    abrirFormulario();
 } else {
     alert("En este caso estas en un rango de Obesidad 3 o tambien llamado Obesidad Morbida, te recomendamos que visites a un especialista")
     console.log("En este caso estas en un rango de Obesidad 3 o tambien llamado Obesidad Morbida")
-*/
+    abrirFormulario();
+}
+
+function abrirFormulario() {
+    let ingresarNombre = prompt("Ingrese su nombre para confirmar");
+    console.log("Su nombre es " + ingresarNombre)
+    let apellido = prompt("Ingrese su apellido: ");
+    console.log("Su apellido es " + apellido)
+    let numeroDni = prompt("Ingrese su numero de DNI: ");
+    console.log("Su numero de DNI es " + numeroDni)
+    let telefono = prompt("Ingrese su telefono para que nos contactemos: ");
+    console.log("Su telefono es " + telefono);
+    alert("A continuacion le mostramos los datos ingresados para que chequee si son correctos o no: Su nombre es: " + ingresarNombre + " su apellido es: " + apellido + ", su numero de telefono es:" + telefono + ", su DNI es:" + numeroDni);
+    console.log("Muestra de datos ingresados")
+    alert("En la brevedad nos comunicaremos para agendarle un turno con nuestros especialistas");
+    console.log("En la brevedad nos comunicaremos con usted")
+}

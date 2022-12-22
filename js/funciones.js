@@ -1,8 +1,6 @@
-document.write('<script src="funciones.js"></script>');
-
 //Solicitar al medico que ingrese a su usuario para luego ingresar datos del paciente como peso y altura para calcular su IMC
 
-//Solicitar al medico que entre a su cuenta
+//Solicitar al usuario que entre a su cuenta
 for (let i = 1; i <= 3; i++) {
     let usuario = prompt("Ingresa tu nombre de usuario");
     let password = prompt("Ingresa tu contraseña");
@@ -28,23 +26,27 @@ let ingresarPeso = parseInt(prompt("Ingresar su peso en Kg"))
 console.log("Usted pesa " + ingresarPeso);
 
 class Paciente{
-    constructor (nombre, altura, peso) {
+    constructor (nombre, altura, peso, id) {
         this.nombre = nombre;
-        this.altura = altura;
-        this.peso = peso;
+        this.altura = parseInt (altura);
+        this.peso = parseInt(peso);
+        this.id= id;
     }
-    
+
+    asignarId(array){
+        this.id = array.length;
+    }
     calcularImc() {
         this.imc = this.peso / (this.altura * this.altura);
     }
+    
 }
-
-const nuevoPaciente = new Paciente(nombrePaciente, ingresarAltura, ingresarPeso);
+const pacientes =[
+    new Paciente(nombrePaciente, ingresarAltura, ingresarPeso,1),
+    ]
+nuevoPaciente = new Paciente(nombrePaciente, ingresarAltura, ingresarPeso);
 nuevoPaciente.calcularImc();
 console.log(nuevoPaciente);
-
-const baseDatos= [];
-baseDatos.push(new Paciente(nombrePaciente, ingresarAltura, ingresarPeso));
 
 informarResultado(nuevoPaciente.imc);
 
@@ -88,9 +90,54 @@ function abrirFormulario() {
     console.log("Su telefono es " + telefono);
     alert("A continuacion le mostramos los datos ingresados para que chequee si son correctos o no: Su nombre es: " + ingresarNombre + " su apellido es: " + apellido + ", su numero de telefono es:" + telefono);
     console.log("Muestra de datos ingresados");
-    alert("En la brevedad nos comunicaremos con el paciente para una entrevista");
-    console.log("En la brevedad nos comunicaremos con el paciente para una entrevista");
+    alert("Gracias por elegirnos, a continuación podrá gestionar sus turnos o consultas");
+    console.log("Gracias por elegirnos, a continuación podrá gestionar sus turnos o consultas");
 }
 
+paciente = prompt("Indique con números si desea: \n1- Turnos para circuito médico con especialistas \n2- Otras consultas \n3- Salir");
 
+if (paciente == 1) {
+    const horaTurnos = prompt("Indique que turno desea: \n1- 14hs \n2- 14.30hs \n3- 15hs  \n4- 15.30hs \n5- 16hs");
+}
 
+function fechaTurno (dia, mes){
+    alert ("Usted podrá realizar el circuito con especialistas el" + " "  + dia +"/"+mes);
+
+for(let i=1; 1<=3;i++) {
+    dia = parseInt(prompt("Ingrese fecha disponible (dd)"));
+    mes=parseInt(prompt("Ingrese mes disponible (mm)"));
+
+    if (dia <=31 && mes <=12){
+    break;
+    }else {
+        alert("¡ERROR! - La fecha ingresada no es válida, intente nuevamente");
+    }
+
+switch(horaTurnos){
+    case "1":
+            alert("Paciente " + nombrePaciente + " Su turno fue asignado,se le recomienda llegar 10 minutos antes, Muchas Gracias por elegirnos");
+            break;
+        case "2":
+            alert("Momentaneamente esta la agenda llena, comuniquese con nosotros");
+            break;
+        case "3":
+            alert("Estimado " + nombre + " Su turno fue asignado,se le recomienda llegar 10 minutos antes, Muchas Gracias");
+            break;
+        case "4":
+            alert("Estimado " + nombre + " Su turno fue asignado,se le recomienda llegar 10 minutos antes, Muchas Gracias");
+            break;
+        case "5":
+            alert("Turnos Agotados, vuelva a ingresar o comuniquese con nosotros");
+            break;
+        default:
+            alert("En caso de o requerir turno, le deseamos una muy buena semana");
+            break;
+}}}
+//Seleccion de otras consultas
+if (paciente == 2) {
+    consultarPaciente = prompt("Ingrese su consulta y a la brevedad nos comunicaremos con usted");
+alert("Gracias por tu consulta, dentro los horarios de atención nos estaremos comunicando")
+    //Salir de la pagina
+} else {
+    alert("La salud es lo primer, estamos para ayudarte. Gracias por tu visita!");
+}
